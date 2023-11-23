@@ -11,11 +11,22 @@ boggle_game = Boggle()
 def show_board():
     board = boggle_game.make_board()
     session['board'] = board
-    return render_template('board.html', board=board)
+    highscore = session.get("highscore", 0)
+    return render_template('board.html', board=board, highscore=highscore)
 
 @app.route("/search-word")
 def search_word():
     word = request.args.get('word')
     board = session['board']
-    res = boggle_game.check_valid_word(board, word)
-    return jsonify({'result': res})
+    result = boggle_game.check_valid_word(board, word)
+    return jsonify({'result': result})
+
+@app.route("/store-highscore", methods=['POST'])
+def store_highscore():
+    score = request.json["score"]
+    highscore = session.get("highscore", 0)
+    if score > highscore:
+        session['highscore'] = score
+    #session['highscore'] = 0
+    is_new_highscore = score > highscore
+    return jsonify({'isnewhighscore': is_new_highscore})
