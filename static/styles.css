@@ -2,10 +2,13 @@ body {
   background-color: rgba(52, 70, 57, 0.4);
   background-color: skyblue;
 }
-h1 {
+header {
   text-align: center;
+  margin: 2rem auto;
   width: 50%;
-  margin: 3rem auto;
+}
+header p {
+  font-size: 24px;
 }
 #board {
   border-collapse: collapse;
@@ -24,9 +27,14 @@ form {
   margin: 2rem auto;
   text-align: center;
 }
-form input {
-  font-size: 24px;
-  padding: 5px;
+form input,
+form label {
+  font-size: 20px;
+  padding: 4px;
+}
+form button {
+  font-size: 20px;
+  padding: 5px 10px;
 }
 #msg,
 #score {

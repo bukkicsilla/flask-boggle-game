@@ -12,7 +12,8 @@ def show_board():
     board = boggle_game.make_board()
     session['board'] = board
     highscore = session.get("highscore", 0)
-    return render_template('board.html', board=board, highscore=highscore)
+    num_played = session.get("numplayed", 0)
+    return render_template('board.html', board=board, highscore=highscore, num_played=num_played)
 
 @app.route("/search-word")
 def search_word():
@@ -25,8 +26,11 @@ def search_word():
 def store_highscore():
     score = request.json["score"]
     highscore = session.get("highscore", 0)
+    num_played = session.get("numplayed", 0)
+    session['numplayed'] = num_played + 1
     if score > highscore:
         session['highscore'] = score
     #session['highscore'] = 0
+    #session['numplayed'] = 0
     is_new_highscore = score > highscore
-    return jsonify({'isnewhighscore': is_new_highscore})
+    return jsonify({'isnewhighscore': is_new_highscore, 'numplayed': num_played+1})
