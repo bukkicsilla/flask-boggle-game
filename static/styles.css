@@ -1,0 +1,41 @@
+body {
+  background-color: rgba(52, 70, 57, 0.4);
+  background-color: skyblue;
+}
+h1 {
+  text-align: center;
+  width: 50%;
+  margin: 3rem auto;
+}
+#board {
+  border-collapse: collapse;
+  width: 30%;
+  margin: 5rem auto;
+  border: 2px solid red;
+}
+#board td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background-color: aliceblue;
+}
+form {
+  width: 60%;
+  margin: 2rem auto;
+  text-align: center;
+}
+form input {
+  font-size: 24px;
+  padding: 5px;
+}
+#msg,
+#score {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+#msg p {
+  font-size: 24px;
+  background-color: white;
+  padding: 10px 20px;
+}

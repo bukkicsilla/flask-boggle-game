@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boogle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css')
+    }}"
+    />
+  </head>
+  <body>
+    <h1>Boogle Game</h1>
+    <form method="GET">
+      <label> Type a word:</label>
+      <input type="text" name="word" />
+      <button>Search</button>
+    </form>
+    <table id="board">
+      <tbody>
+        {% for row in board %}
+        <tr>
+          {% for i in row %}
+          <td>{{ i }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div id="msg">
+      <p>Messages will be shown here.</p>
+    </div>
+    <div id="score">
+      <h2>Score: 0</h2>
+    </div>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="{{ url_for('static', filename='board.js')}}"></script>
+  </body>
+</html>
