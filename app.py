@@ -9,6 +9,7 @@ boggle_game = Boggle()
     
 @app.route("/")
 def show_board():
+    '''It created the board with random letters.'''
     board = boggle_game.make_board()
     session['board'] = board
     highscore = session.get("highscore", 0)
@@ -17,6 +18,7 @@ def show_board():
 
 @app.route("/search-word")
 def search_word():
+    '''It searches the given word on the board. It returns a message. '''
     word = request.args.get('word')
     board = session['board']
     result = boggle_game.check_valid_word(board, word)
@@ -24,6 +26,7 @@ def search_word():
 
 @app.route("/store-highscore", methods=['POST'])
 def store_highscore():
+    '''It saves the highscores and how many times the game was played.'''
     score = request.json["score"]
     highscore = session.get("highscore", 0)
     num_played = session.get("numplayed", 0)
