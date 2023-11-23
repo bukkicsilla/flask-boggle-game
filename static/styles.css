@@ -37,7 +37,8 @@ form button {
   padding: 5px 10px;
 }
 #msg,
-#score {
+#score,
+#words {
   text-align: center;
   width: 60%;
   margin: 0 auto;

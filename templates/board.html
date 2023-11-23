@@ -13,7 +13,7 @@
   <body>
     <header>
       <h1>Boogle Game</h1>
-      <p>Have fun!</p>
+      <p>You have 60 seconds to play. Have fun!</p>
     </header>
     <form method="GET">
       <label> Type a word:</label>
@@ -37,6 +37,7 @@
     <div id="score">
       <h2>Your score: 0</h2>
     </div>
+    <div id="words"></div>
     <script src="http://unpkg.com/jquery"></script>
     <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
     <script src="{{ url_for('static', filename='board.js')}}"></script>

@@ -25,6 +25,16 @@ $(function () {
     return `rgb(${red}, ${green}, ${blue})`;
   }
 
+  function show_words() {
+    //$("<span></span>").text(words).appendTo("#words");
+    $("#words").empty();
+    words.forEach((w) =>
+      $("<span></span>")
+        .text(`   ${w}   `)
+        .css("font-size", "24px")
+        .appendTo("#words")
+    );
+  }
   async function searchWord(event) {
     event.preventDefault();
     let word = $("input").val();
@@ -40,6 +50,7 @@ $(function () {
         $("#msg p").text("You have found a word.");
         score += word.length;
         words.add(word);
+        show_words();
       } else {
         $("#msg p").text("You have already checked this word.");
         score -= 1;
@@ -47,6 +58,7 @@ $(function () {
       $("h2").text(`Your score: ${score}`);
     }
     $("#msg p").css("color", getColor());
+    $("input").val("").focus();
   }
 
   $("form").on("submit", searchWord);
