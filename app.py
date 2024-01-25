@@ -16,7 +16,7 @@ def show_board():
     num_played = session.get("numplayed", 0)
     return render_template('board.html', board=board, highscore=highscore, num_played=num_played)
 
-@app.route("/search-word")
+@app.route("/search-word", methods=['GET', 'POST'])
 def search_word():
     '''It searches the given word on the board. It returns a message. '''
     word = request.args.get('word')
